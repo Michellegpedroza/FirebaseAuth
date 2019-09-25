@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.2.0/firebaseui.css" />
+</head>
+
+<body>
+  <h1>Welcome to My Awesome App</h1>
+  <div id="firebaseui-auth-container"></div>
+  
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-auth.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/4.2.0/firebaseui.js"></script>
+  <script type="text/javascript">
+    const config = {
+      apiKey: "AIzaSyDLBx1gzJ5tPDXYjw5ToBecbD8CvLCEV4k",
+      authDomain: "project-1-ec0b5.firebaseapp.com",
+      databaseURL: "https://project-1-ec0b5.firebaseio.com",
+      projectId: "project-1-ec0b5",
+      storageBucket: "project-1-ec0b5.appspot.com",
+      messagingSenderId: "645007897127",
+      appId: "1:645007897127:web:442c517dc4a6a3deb7d402",
+      measurementId: "G-3C5K51H20H"
+    }
+
+    firebase.initializeApp(config)
+
+    // FirebaseUI config.
+    const uiConfig = {
+      signInSuccessUrl: 'login.html',
+      signInOptions: [
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID
+      ]
+    }
+
+    // Initialize the FirebaseUI Widget using Firebase.
+    const ui = new firebaseui.auth.AuthUI(firebase.auth())
+    // The start method will wait until the DOM is loaded.
+    ui.start('#firebaseui-auth-container', uiConfig);
+  </script>
+</body>
+
+</html>
